@@ -1,0 +1,220 @@
+\documentclass[a4paper,10pt,twocolumn,oneside]{article}
+\setlength{\columnsep}{10pt}                                                                    %兩欄模式的間距
+\setlength{\columnseprule}{0pt}                                                                %兩欄模式間格線粗細
+
+\usepackage{amsthm}								%定義，例題
+\usepackage{amssymb}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{fontspec}								%設定字體
+\usepackage{color}
+\usepackage[x11names]{xcolor}
+\usepackage{listings}								%顯示code用的
+\usepackage[Glenn]{fncychap}						%排版，頁面模板
+\usepackage{fancyhdr}								%設定頁首頁尾
+\usepackage{graphicx}								%Graphic
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{codebook}
+\usepackage[CheckSingle, CJKmath]{xeCJK}{https://www.overleaf.com/project/62f64fba951c6e4727cbd50b}
+% \usepackage{CJKulem}
+
+%\usepackage[T1]{fontenc}
+\usepackage{amsmath, courier, listings, fancyhdr, graphicx}
+\topmargin=0pt
+\headsep=5pt
+\textheight=780pt
+\footskip=0pt
+\voffset=-40pt
+\textwidth=545pt
+\marginparsep=0pt
+\marginparwidth=0pt
+\marginparpush=0pt
+\oddsidemargin=0pt
+\evensidemargin=0pt
+\hoffset=-42pt
+
+%\renewcommand\listfigurename{圖目錄}
+%\renewcommand\listtablename{表目錄} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setmainfont{Consolas}				%主要字型
+\setmonofont{[monaco.ttf]}				%主要字型
+% \setmonofont{Consolas}
+% \setCJKmainfont{Noto Sans CJK TC}
+% \setCJKmainfont{Consolas}			%中文字型
+%\setmainfont{sourcecodepro}
+\XeTeXlinebreaklocale "zh"						%中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt				%設定段落之間的距離
+\setcounter{secnumdepth}{3}						%目錄顯示第三層
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
+\@empty\z@\@empty
+\makeatother
+\lstset{											% Code顯示
+language=C++,										% the language of the code
+basicstyle=\ttfamily, 						% the size of the fonts that are used for the code
+%numbers=left,										% where to put the line-numbers
+numberstyle=\footnotesize,						% the size of the fonts that are used for the line-numbers
+stepnumber=1,										% the step between two line-numbers. If it's 1, each line  will be numbered
+numbersep=5pt,										% how far the line-numbers are from the code
+backgroundcolor=\color{white},					% choose the background color. You must add \usepackage{color}
+showspaces=false,									% show spaces adding particular underscores
+showstringspaces=false,							% underline spaces within strings
+showtabs=false,									% show tabs within strings adding particular underscores
+frame=false,											% adds a frame around the code
+tabsize=2,											% sets default tabsize to 2 spaces
+captionpos=b,										% sets the caption-position to bottom
+breaklines=true,									% sets automatic line breaking
+breakatwhitespace=false,							% sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},							% if you want to add a comment within your code
+morekeywords={*},									% if you want to add more keywords to the set
+keywordstyle=\bfseries\color{Blue1},
+commentstyle=\itshape\color{Red4},
+stringstyle=\itshape\color{Green4}
+}
+
+
+\university{Ashes}{National Taiwan University}{ntu}
+\team{Ashes}{Chieh-Tu Yu, Tung-Chun Lin, Chan-Yu Yeh}
+% \contest{ICPC }{Date}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketeampage % cover page
+\pagestyle{fancy}
+\fancyfoot{}
+%\fancyfoot[R]{\includegraphics[width=20pt]{ironwood.jpg}}
+\fancyhead[L]{National Taiwan University Ashes}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\contentsname}{Contents} 
+\scriptsize
+\begingroup
+\let\clearpage\relax
+% \tableofcontents
+\endgroup
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+
+\section{Basic}
+\code{Fast Integer Input}{Basic/Rit.cpp}
+\code{Increase stack size}{Basic/IncStack.cpp}
+\code{Default Code}{Basic/default.cpp}
+\code{Beat Match}{Basic/Beat Match.cpp}
+\code{Mo's Algorithm}{Basic/SqRootDecomp.cpp}
+\code{Big Integer}{Basic/Int.cpp}
+\code{CDQ}{Basic/CDQ.cpp}
+
+\section{Flows, Matching}
+\code{Dinic's Algorithm}{Flow/Dinic.cpp}
+\code{Minimum Cost Maximum Flow}{Flow/MinCostFlow.cpp}
+\code{Khun's Algorithm}{Flow/KhunMatching.cpp}
+\code{Bipartite Matching}{Flow/BipartiteMatching.cpp}
+\code{Weighted Bipartite Match}{Flow/WeightedBipartiteMatch.cpp}
+\code{Maximum Matching on General Graph}{Flow/MaximumGeneralMatching.cpp}
+\tex{Flow Models}{Flow/Model.tex}
+
+
+\section{Data Structure}
+\code{Disjoint Set Union}{Data-Structure/DSU.cpp}
+\code{Weight union find}{Data-Structure/WeightedUnionFind.cpp}
+\code{Segment Tree}{Data-Structure/SegTree.cpp}
+\code{Lazy Segment Tree}{Data-Structure/LazySegTree.cpp}
+\code{Treap}{Data-Structure/Treap.cpp}
+\code{Binary Search on BIT}{Data-Structure/BinarySearchBIT.cpp}
+\code{LiChaoTree}{Data-Structure/LiChaoTree.cpp}
+\code{HJT Tree}{Data-Structure/Persistent data structure.cpp}
+\code{HJT Tree on Tree}{Data-Structure/Persistent data structure on tree.cpp}
+\code{Dynamic Open Point Segment Tree}{Data-Structure/DynamicPointSGT.cpp}
+\code{Linear Basis}{Data-Structure/LB.cpp}
+\code{Fenwick Tree Sparse2D Offline}{Data-Structure/Fenwik2DSum.cpp}
+
+\section{Graph}
+\code{Domination}{Graph/Domination.txt}
+\code{Edge Bi-Connected Component}{Graph/Tarjan_eBCC.cpp}
+\code{Vertex Bi-Connected Component}{Graph/Tarjan_vBCC.cpp}
+\code{Strongly Connected Component}{Graph/TarjanSCC.cpp}
+\code{2 SAT}{Graph/2SAT.cpp}
+\code{Round Square Tree}{Graph/RST.cpp}
+\code{Heavy Light Decomposition}{Graph/HeavyLightDecomp.cpp}
+\code{Centroid Decomposition}{Graph/CentroidDecomp.cpp}
+\code{Directed MST}{Graph/DMST.cpp}
+\code{Dominator Tree}{Graph/DominatorTree.cpp}
+\code{Stoer–Wagner Minimum Cut}{Graph/StoerWagnerMinimumCut.cpp}
+\code{Maximum Clique}{Graph/MaximumClique.cpp}
+\code{Edge Coloring}{Graph/Vizing.cpp}
+\code{Mo's on Tree}{Graph/MoOnTree.cpp}
+\code{Tree Hash}{Graph/tree_hash.cpp}
+
+\section{String}
+\code{Knuth–Morris–Pratt Algorithm}{String/KMP.cpp}
+\code{Z Algorithm}{String/Z.cpp}
+\code{AC Automaton}{String/acam.cpp}
+\code{Suffix Automaton}{String/SAM.cpp}
+\code{Suffix Array}{String/SuffixArray.cpp}
+\code{Least Rotation}{String/LeastRotation.cpp}
+\code{Manacher}{String/Manacher.cpp}
+
+\section{Math}
+\code{Sieve of Eratosthenes}{Math/CompPrimes.cpp}
+\code{Euler's Totient Function}{Math/Euler.cpp}
+\code{Extended GCD}{Math/ExtendGcd.cpp}
+\code{Floor Sum}{Math/FloorSum.cpp}
+\code{Primitive Root}{Math/PrimitiveRoot.cpp}
+\code{Discrete Logarithm}{Math/DiscreteLog.cpp}
+\code{Discrete Root}{Math/DiscreteRoot.cpp}
+\code {Linear Function Mod Min}{Math/LinearFuncModMin.cpp}
+\code{Fast Inverse}{Math/Inverse.cpp}
+\code{Factorial Mod}{Math/FactMod.cpp}
+\code{Miller Rabin}{Math/MillerRabin.cpp}
+\code{Pollard's Rho}{Math/PollardRho.cpp}
+\code{Linear Equation}{Math/LinearEquation.cpp}
+\tex{Simplex Construction}{Math/SimplexConstruction.tex}
+\code{Simplex}{Math/Simplex.cpp}
+\code{NTT}{Math/NTT.cpp}
+\tex{NTT Prime}{Math/NTTprime.tex}
+\code{FFT}{Math/FFT.cpp}
+\code{XOR Convolution}{Math/XOR_conv.cpp}
+\code{SG}{Math/SG.cpp}
+\code{Theorem}{Math/theorem.cpp}
+\code{Mobius Inversion}{Math/Mu.cpp}
+\code{Chinese Remainder Theorem}{Math/CRT.cpp}
+\code{Intergral}{Math/AdaptiveSimpson.cpp}
+\code{Gauss Mod}{Math/GaussMod.cpp}
+
+\section{Geometry}
+\code{Basic}{Geometry/Basic.cpp}
+\code{Half Plane Intersection}{Geometry/HalfPlaneIntersect.cpp}
+\code{Slope \& Fraction}{Geometry/Slope.cpp}
+\code{Convex order}{Geometry/Convex_order.cpp}
+\code{Convex Hull}{Geometry/Convex.cpp}
+\code{Area}{Geometry/Area.cpp}
+\code{Circle}{Geometry/circle.cpp}
+\code{Area of Union of Circles}{Geometry/circleOrArea.cpp}
+\code{Minimun Distance of 2 Polygons}{Geometry/minDistOfTwoConvex.cpp}
+\code{Closest Pair}{Geometry/ClosestPair.cpp}
+\code{Minkowski Sum}{Geometry/Minkowski.cpp}
+\code{Point in Polygon}{Geometry/pip.cpp}
+\code{Minimum Enclosing Circle}{Geometry/MinimumEnclosingCircle.cpp}
+\code{Ternary Search}{Geometry/Ternary_Search.cpp}
+\code{Poly Union}{Geometry/PolyUnion.cpp}
+\code{Intersection Line \& Circle}{Geometry/Intersection_of_line_and_circle.cpp}
+
+\section{Dynamic Programming}
+\code{DP-Optimization}{dynamic-programming/DP-optimize.cpp}
+\code{DP $1D/1D$}{dynamic-programming/Dp1D1D.cpp}
+\tex{Conditon}{dynamic-programming/Condition.tex}
+\code{Dynamic Convex Hull}{dynamic-programming/DynamicConvexHull.cpp}
+\code{$1D/1D$ Convex Optimization}{dynamic-programming/convex1d1d.cpp}
+\code{Convex Monotone}{dynamic-programming/convexHullMonotone.cpp}
+\code{Convex NonMonotone}{dynamic-programming/convexHullNonMonotone.cpp}
+\code{Sum over Subsets Optimization}{dynamic-programming/sos-dp.cpp}
+
+\end{document}
+
