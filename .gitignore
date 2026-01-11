@@ -11,3 +11,4 @@
 *.toc
 *.xdv
 _minted*
+.DS_Store
