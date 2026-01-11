@@ -46,7 +46,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \setmainfont{Consolas}				%主要字型
-\setmonofont{Monaco}				%主要字型
+\IfFontExistsTF{Monaco}{
+	\setmonofont{Monaco}	%主要字型
+}{
+	% 如果找不到 Monaco (例如在 GitHub Actions)，就使用預設等寬字型
+    % 這裡留空，LaTeX 就會自動用預設的 (Latin Modern Typewriter)
+}
 % \setmonofont{Consolas}
 % \setCJKmainfont{Noto Sans CJK TC}
 % \setCJKmainfont{Consolas}			%中文字型
