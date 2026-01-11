@@ -1,0 +1,42 @@
+name: Build Codebook PDF
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          # 這裡非常重要！因為你有用 xeCJK，必須指定使用 xelatex
+          latexmk_use_xelatex: true
+          # 如果你有用到 mintings 或 shell escape 需開啟
+          # args: "-shell-escape -interaction=nonstopmode -file-line-error"
+
+      - name: Upload PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: codebook-pdf
+          path: main.pdf
+          retention-days: 5
+
+      # (選用) 自動發布 Release：如果你希望每次 push 都有一個固定的下載連結
+      - name: Release PDF
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: main.pdf
+          tag_name: latest
+          name: Latest Codebook Build
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
