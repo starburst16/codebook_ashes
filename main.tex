@@ -18,8 +18,14 @@
 \usepackage{amsmath}
 \usepackage{codebook}
 \usepackage[CheckSingle, CJKmath]{xeCJK}% \usepackage{CJKulem}
-\setCJKmainfont{PingFang TC}
-\setCJKmonofont{PingFang TC}
+\IfFontExistsTF{PingFang TC}{
+    \setCJKmainfont{PingFang TC}
+    \setCJKmonofont{PingFang TC}
+}{
+    \setCJKmainfont{FandolSong-Regular}
+    \setCJKmonofont{FandolFang-Regular}
+}
+
 %\usepackage[T1]{fontenc}
 \usepackage{amsmath, courier, listings, fancyhdr, graphicx}
 \topmargin=0pt
