@@ -4,15 +4,15 @@ int p[maxn], dep[maxn], sz[maxn], to[maxn];
 int tp[maxn], dfn[maxn], st[maxn * 4], tk;
 vector<int> g[maxn];
 
-void dfs(int u, int fa) {
-    dep[u] = ~fa ? dep[fa] + 1 : 0;
-    fa[u] = fa;
+void dfs(int u, int f) {
+    dep[u] = ~f ? dep[f] + 1 : 0;
+    fa[u] = f;
     sz[u] = 1;
     to[u] = -1;
 
     for (int i = 0; i < (int)g[u].size(); ++i) {
         int v = g[u][i];
-        if (v == fa) continue;
+        if (v == f) continue;
         dfs(v, u);
         sz[u] += sz[v];
         if (to[u] == -1 || sz[v] > sz[to[u]]) swap(to[u], v);
